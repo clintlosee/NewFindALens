@@ -1,18 +1,24 @@
 {
-    "name": "find-a-lens",
-    "version": "1.0.0",
-    "description": "Find-A-Lens Website",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
-    "author": "Clint Losee",
-    "license": "MIT",
-    "dependencies": {
-        "body-parser": "^1.14.1",
-        "express": "^4.13.3",
-        "mongoose": "^4.1.10",
-        "morgan": "^1.6.1"
-    }
+  "name": "find-a-lens",
+  "version": "1.0.0",
+  "description": "Find-A-Lens Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Clint Losee",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.10",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4"
+  }
 }

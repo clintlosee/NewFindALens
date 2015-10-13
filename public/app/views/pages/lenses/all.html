@@ -1,0 +1,40 @@
+<div class="page-header">
+    <h1>
+        Lenses
+        <a href="/lenses/create" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus"></span>
+            New Lens
+        </a>
+    </h1>
+</div>
+
+<!-- LOADING MESSAGE -->
+<div class="jumbotron table-bordered table-striped" ng-show="lens.processing">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading Lenses...</p>
+</div>
+
+<table class="table table-bordered table-striped" ng-if="lens.lenses">
+    <thead>
+        <tr>
+            <th>Lens ID</th>
+            <th>Lens Name</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th class="col-sm-2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- LOOP OVER THE LENSES -->
+        <tr ng-repeat="lens in lens.lenses">
+            <td>{{ lens._id }}</td>
+            <td>{{ lens.lensName }}</td>
+            <td>{{ lens.model }}</td>
+            <td>{{ lens.price }}</td>
+            <td class="col-sm-2">
+                <a ng-href="/lenses/{{ lens._id }}" class="btn btn-success">Edit</a>
+                <a href="#" ng-click="lens.deleteLens(lens._id)" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
