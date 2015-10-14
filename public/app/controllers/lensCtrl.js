@@ -42,20 +42,19 @@ angular.module('lensCtrl', ['lensService'])
     // variable to show/hide elements in view
     // differentieates between create and edit pages
     vm.type = 'create';
-
+    
     // function to create a lens
     vm.saveLens = function() {
         vm.processing = true;
-
-        // use the create function in the lensService
+        
         Lens.create(vm.lensData)
-            .success(function(data) {
+        .success(function(data) {
             vm.processing = false;
 
             // clear the form
             vm.lensData = {};
             vm.message = data.message;
-        })
+        });
     }
 })
 
@@ -66,29 +65,30 @@ angular.module('lensCtrl', ['lensService'])
     // variable to hide/show elements in the view
     // differentiates between create or edit pages
     vm.type = 'edit';
-
+    
     // Get the lens data for the lens you want to edit
-    // $routeParams is how you grab the data from the URL
+    // $routeParams to grab the data from the URL
     Lens.get($routeParams.lens_id)
         .success(function(data) {
         vm.lensData = data;
     });
-
+    
     // function to save the lens
     vm.saveLens = function() {
         vm.processing = true;
         vm.message = '';
-
+        
         // call the lensService function to Update
         Lens.update($routeParams.lens_id, vm.lensData)
-            .success(function(data) {
+        .success(function(data) {
             vm.processing = false;
-
+            
             // clear the form
             vm.lensData = {};
-
+            
             // bind the message from the API to vm.message
             vm.message = data.message;
         });
     };
 });
+

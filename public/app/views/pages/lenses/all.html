@@ -26,14 +26,14 @@
     </thead>
     <tbody>
         <!-- LOOP OVER THE LENSES -->
-        <tr ng-repeat="lens in lens.lenses">
-            <td>{{ lens._id }}</td>
-            <td>{{ lens.lensName }}</td>
-            <td>{{ lens.model }}</td>
-            <td>{{ lens.price }}</td>
+        <tr ng-repeat="info in lens.lenses">
+            <td>{{ info._id }}</td>
+            <td>{{ info.lensName }}</td>
+            <td>{{ info.model }}</td>
+            <td>{{ info.price }}</td>
             <td class="col-sm-2">
-                <a ng-href="/lenses/{{ lens._id }}" class="btn btn-success">Edit</a>
-                <a href="#" ng-click="lens.deleteLens(lens._id)" class="btn btn-danger">Delete</a>
+                <a ng-href="/lenses/{{ info._id }}" class="btn btn-success">Edit</a>
+                <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     </tbody>

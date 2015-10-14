@@ -15,29 +15,30 @@ module.exports = function(app, express) {
 
     // routes that end in /lens
     router.route('/lens')
+    
+    // create a lens (access at POST http://localhost:8000/api/lens)
+    .post(function(req, res) {
+        var lens = new Lens();
         
-        // create a lens (access at POST http://localhost:8000/api/lens)
-        .post(function(req, res) {
-            var lens = new Lens();
+        lens.lensName = req.body.lensName;
+        lens.model = req.body.model;
+        lens.price = req.body.price;
+        
+        lens.save(function(err) {
+            if (err) {
+                // duplicate entry
+                if (err.code == 11000)
+                    return res.json({ success: false, message: 'A lens with that model already exists.' });
+                else 
+                    return res.send(err)
+            }
             
-            // set the lens information (comes from request)
-            lens.lensName = req.body.lensName;
-            lens.model = req.body.model;
-            lens.price = req.body.price;
-
-            lens.save(function(err) {
-                if (err) {
-                    if (err.code == 11000)
-                        return res.json({ success: false, message: 'A lens with that model already exists.'});
-                } else {
-                    return res.send(err);
-                }
-
-                res.json({ message: 'Lens Created!'});
-            });
-        })
-
-        .get(function(req, res) {
+            res.json({ message: 'Lens Created!' });
+        });
+    })
+    
+    // get all lenses (access at GET http://localhost:8000/api/lens)
+    .get(function(req, res) {
         Lens.find(function(err, lenses) {
             if (err) res.send(err);
 

@@ -9,23 +9,37 @@
 //    ngAnnotate = require('gulp-ng-annotate')
 //    nodemon = require('gulp-nodemon');
 
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    minifyCSS = require('gulp-minify-css'),
-    rename = require('gulp-rename');
+var gulp            = require('gulp'),
+    sass            = require('gulp-sass'),
+    minifyCSS       = require('gulp-minify-css'),
+    rename          = require('gulp-rename'),
+    autoprefixer    = require('gulp-autoprefixer'),
+    sassdoc         = require('sassdoc');
 
 // task variables
 var sassinput = './public/assets/css/**/*.scss';
-var sassoutput = './public/assets/css'
+var sassoutput = './public/assets/css';
+var sassdocOptions = {
+    dest: './public/sassdoc'
+};
 
 
 // SASS file processing
 gulp.task('sass', function() {
     return gulp.src(sassinput)
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(minifyCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(sassoutput));
+});
+
+// SASSDOC processing
+gulp.task('sassdoc', function() {
+    return gulp
+        .src(sassinput)
+        .pipe(sassdoc(sassdocOptions))  
+        .resume();
 });
 
 // gulp watch

@@ -12,6 +12,18 @@ angular.module('app.routes', ['ngRoute'])
         templateUrl : 'app/views/pages/lenses/all.html',
         controller : 'lensController',
         controllerAs : 'lens'
+    })
+    
+    .when('/lenses/create', {
+        templateUrl : 'app/views/pages/lenses/single.html',
+        controller : 'lensCreateController',
+        controllerAs : 'lens'
+    })
+
+    .when('/lenses/:lens_id', {
+        templateUrl : 'app/views/pages/lenses/single.html',
+        controller : 'lensEditController',
+        controllerAs : 'lens'
     });
     
     $locationProvider.html5Mode(true);
