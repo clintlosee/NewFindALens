@@ -5,6 +5,13 @@
 
 <form ng-submit="lens.saveLens()" class="form-horizontal">
     <div class="form-group">
+        <label class="col-sm-2 control-label">Brand</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.brand">
+        </div>
+    </div>
+       
+    <div class="form-group">
         <label class="col-sm-2 control-label">Lens Name</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" ng-model="lens.lensData.lensName">
@@ -22,6 +29,59 @@
         <label class="col-sm-2 control-label">Price</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" ng-model="lens.lensData.price">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Aperture</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.aperture">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Focal Range</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.focalRange">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Filter Size</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.filterSize">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Mount</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.mount">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Stabilization</label>
+        <div class="col-sm-2">
+<!--            <input type="text" class="form-control" ng-model="lens.lensData.stabilization">-->
+            
+            <div class="radio">
+                <label>
+                    <input type="radio" name="truefalse" value="true" ng-model="lens.lensData.stabilization" aria-label="true">
+                    True
+                </label>
+                <label>
+                    <input type="radio" name="truefalse" value="false" ng-model="lens.lensData.stabilization" aria-label="false">
+                    False
+                </label>
+            </div><!-- /input-group -->
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-2 control-label">afmotor</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.afmotor">
         </div>
     </div>
 

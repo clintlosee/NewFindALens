@@ -4,9 +4,21 @@ var mongoose    = require('mongoose'),
 
 // lens schema
 var LensSchema = new Schema({
-    lensName:   { type: String, required: true },
-    model:      { type: String, required: true, index: { unique: true }},
-    price:      { type: Number, required: true }
+    brand:          { type: String },
+    lensName:       { type: String, required: true },
+    model:          { type: String, required: true, index: { unique: true }},
+    price:          { type: Number },
+    aperture:       { type: String },
+    focalRange:     { type: String },
+    filterSize:     { type: String },
+    mount:          { type: String },
+    stabilization:  { type: Boolean },
+    afmotor:        { type: String },
+    zoomType:       { type: String },
+    frontElementRotate:  { type: String },
+    tripodMount:    { type: Boolean },
+    color:          { type: String },
+    manualFocus:     { type: Boolean }
 });
 
 // return the model

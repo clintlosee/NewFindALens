@@ -1,0 +1,26 @@
+@mixin large($force: false) {
+    @if $force == false {
+        @media screen and (min-width: 1200px){
+            @content;
+        }
+    }
+}
+@mixin desktop($force: false) {
+    @if $force == false {
+        @media screen and (min-width: 980px){
+            @content;
+        }
+    }
+}
+@mixin tablet() {
+    @media screen and (max-width: 979px), display and (-webkit-min-device-pixel-ratio: 2) and (max-width: 979px){
+        @content;
+    }
+}
+@mixin mobile($force: false) {
+    @if $force == true {
+        @media screen and (max-width: 767px){
+            @content;
+        }
+    }
+}

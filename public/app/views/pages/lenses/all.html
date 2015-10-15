@@ -18,9 +18,11 @@
     <thead>
         <tr>
             <th>Lens ID</th>
+            <th>Brand</th>
             <th>Lens Name</th>
             <th>Model</th>
             <th>Price</th>
+            <th>Stabilzation</th>
             <th class="col-sm-2"></th>
         </tr>
     </thead>
@@ -28,9 +30,11 @@
         <!-- LOOP OVER THE LENSES -->
         <tr ng-repeat="info in lens.lenses">
             <td>{{ info._id }}</td>
+            <td>{{ info.brand }}</td>
             <td>{{ info.lensName }}</td>
             <td>{{ info.model }}</td>
             <td>{{ info.price }}</td>
+            <td>{{ info.stabilization }}</td>
             <td class="col-sm-2">
                 <a ng-href="/lenses/{{ info._id }}" class="btn btn-success">Edit</a>
                 <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger">Delete</a>

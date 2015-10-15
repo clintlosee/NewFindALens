@@ -20,9 +20,21 @@ module.exports = function(app, express) {
     .post(function(req, res) {
         var lens = new Lens();
         
-        lens.lensName = req.body.lensName;
-        lens.model = req.body.model;
-        lens.price = req.body.price;
+        lens.brand          = req.body.brand;
+        lens.lensName       = req.body.lensName;
+        lens.model          = req.body.model;
+        lens.price          = req.body.price;
+        lens.aperture       = req.body.aperture;
+        lens.focalRange     = req.body.focalRange;
+        lens.filterSize     = req.body.filterSize;
+        lens.mount          = req.body.mount;
+        lens.stabilization  = req.body.stabilization;
+        lens.afmotor        = req.body.afmotor;
+        lens.zoomType       = req.body.zoomType;
+        lens.frontElementRotate = req.body.frontElementRotate;
+        lens.tripodMount    = req.body.tripodMount;
+        lens.color          = req.body.color;
+        lens.manualFocus    = req.body.manualFocus;
         
         lens.save(function(err) {
             if (err) {

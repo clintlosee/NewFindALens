@@ -24,6 +24,14 @@ angular.module('app.routes', ['ngRoute'])
         templateUrl : 'app/views/pages/lenses/single.html',
         controller : 'lensEditController',
         controllerAs : 'lens'
+    })
+    
+    .when('/canon', {
+        templateUrl : 'app/views/pages/brands/canon.html'
+    })
+        
+    .when('/nikon', {
+        templateUrl : 'app/views/pages/brands/nikon.html'
     });
     
     $locationProvider.html5Mode(true);
