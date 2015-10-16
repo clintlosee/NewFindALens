@@ -62,9 +62,6 @@ body {
         text-shadow: 0 1px 3px rgba(0,0,0,.5);
     }
 }
-//.jumbotron h1, .jumbotron h2 {
-//    color: $lightGray;
-//}
 
 /********** Navigation ********/
 .navbar {
@@ -90,58 +87,59 @@ html, body {
     height: 4em;
 }
 #content {
-    padding-top:50px;
-    padding-bottom:20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 
-#home-content h1 a {
-    font-size:2em;
-}
 #info {
-    font-size:1.5em;
-    cursor:pointer;
-    margin:10px;
-    color:#efefef;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 10px;
+    color: $lightGray;
 }
 #info:hover {
-    color:#999;
+    color: #999;
 }
 
 .home-input {
-    margin:10px inherit;
-    height:50px;
+    margin: 10px inherit;
+    height: 50px;
 }
 
 .cameraLogo {
-    margin:50px 0;
+    margin: 50px 0;
 }
 
 .camera-model {
-    height:300px; // Temporary for collapsing divs
-    margin:0;
-    border:1px solid #ddd;
-    background-color:#efefef;
+    height: 300px; // Temporary for collapsing divs
+    margin: 0;
+    border: 1px solid #ddd;
+    background-color: $lightGray;
     transition: background-color 0.2s ease-out,
         color 0.2s ease-in;
-}
-.camera-model:hover {
-    background-color:#cf5b34;
-}
-.camera-model h1 a {
-    padding:100px;
-    margin:-10px 0;
-    color:#444;
-}
-.camera-model h1 a:hover {
-    color:#efefef;
-    text-decoration:none;
+    
+    &:hover {
+        background-color: #cf5b34;
+    }
+    
+    h1 a {
+        font-size: 2em;
+        padding: 100px;
+        margin: -25px 0;
+        color: #444;
+        
+        &:hover {
+            color: $lightGray;
+            text-decoration: none;
+        }
+    }
 }
 
 
 /******** Lens list ***********/
 .lens-list {
-    padding-top:20px;
+    padding-top: 20px;
     text-shadow: none;
 }
 
@@ -153,24 +151,24 @@ html, body {
 }
 
 #lens-content {
-    background-color:#fefefe;
-    color:#333;
+    background-color: $lightGray;
+    color: #333;
     padding: 10px;
     text-shadow: none;
 }
 #lens-content ul {
-    text-align:left;
+    text-align: left;
 }
 
 .ind-lens {
-    height:750px;
+    height: 750px;
 }
 .lens-images {
-    margin:20px auto;
+    margin: 20px auto;
 }
 
 .badge {
-    font-size:1.5em;
+    font-size: 1.5em;
 }
 
 
@@ -179,17 +177,27 @@ html, body {
 footer {
     background-color: #222;
     padding: 16px 0;
-    margin:50px 0 0;
+    margin: 50px 0 0;
     color: #999; /* IE8 proofing */
     color: rgba(255,255,255,.5);
 }
 
 
-
+@include tablet() {
+    .camera-model {
+        height: 250px;
+        
+        h1 a {
+            font-size: 1.3em;
+            margin: -10px 0;
+            padding: 75px;
+        }
+    }
+}
 
 @media (max-width: 767px) {
     body {
-        margin-top:40px;
+        margin-top: 40px;
     }
     .navbar {
         padding: 20px 0;
@@ -201,8 +209,6 @@ footer {
     .top-nav-collapse {
         padding: 0;
     }
-
-
 
 }
 
@@ -234,7 +240,7 @@ input {
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, x-ng-cloak {
-    display:none;
+    display: none;
 }
 
 
