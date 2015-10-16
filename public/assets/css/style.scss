@@ -47,18 +47,24 @@ body {
     color: $white;
     text-align: center;
     padding-top: 14px;
-    // text-shadow: 0 1px 3px rgba(0,0,0,.5);
+//     text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 
 /********** Header **********/
 .jumbotron {
-    background: url("../img/background/red-diamond-v1.png") $lightGray repeat;
+//    background: url("../img/background/red-diamond-v1.png") $lightGray repeat;
+    background: url("../img/background/geo3.jpg") $lightGray repeat;
     margin-bottom: 0 !important;
+    
+    h2, h3 {
+        color: $lightGray;
+        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
 }
-.jumbotron h1, .jumbotron h2 {
-    color: $lightGray;
-}
+//.jumbotron h1, .jumbotron h2 {
+//    color: $lightGray;
+//}
 
 /********** Navigation ********/
 .navbar {
@@ -205,6 +211,10 @@ footer {
 }
 
 
+/********************* TABLE STYLING *******************************/
+table thead th {
+    text-align: center;
+}
 
 
 
@@ -330,42 +340,52 @@ a.ghost-button:hover, a.ghost-button:active {
 
 /* show and hide */
 .show-hide-message.ng-hide-remove {
-    -webkit-animation: zoomIn 0.3s both ease;
-    -moz-animation: zoomIn 0.3s both ease;
-    animation: zoomIn 0.3s both ease;
+    -webkit-animation: flipInX 0.3s both ease;
+    -moz-animation: flipInX 0.3s both ease;
+    animation: flipInX 0.3s both ease;
 }
 
+.page.ng-enter {
+    -webkit-animation: fadeIn 0.3s both ease;
+    -moz-animation: fadeIn 0.3s both ease;
+    animation: fadeIn 0.3s both ease;
+}
+.page.ng-leave {
+    -webkit-animation: fadeOut 0.3s both ease;
+    -moz-animation: fadeOut 0.3s both ease;
+    animation: fadeOut 0.3s both ease;
+}
 
 
 /*  ng-view Animation  */
-.page.ng-enter {
-    transition: all 1s ease;
-    -webkit-transition:all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-
-    opacity:0.5;
-    position:relative;
-    opacity:0;
-    top:10px;
-}
-.page.ng-enter {
-    opacity: 0;
-}
-.page.ng-enter.ng-enter-active {
-    top:0;
-    opacity: 1;
-}
-
-.page.ng-leave.ng-leave-active{
-    top:5px;
-    opacity:1;
-}
-.page.ng-leave{
-    top:0;
-    left:0;
-    opacity:0;
-}
+//.page.ng-enter {
+//    transition: all 1s ease;
+//    -webkit-transition:all 1s ease;
+//    -moz-transition: all 1s ease;
+//    -o-transition: all 1s ease;
+//
+//    opacity:0.5;
+//    position:relative;
+//    opacity:0;
+//    top:10px;
+//}
+//.page.ng-enter {
+//    opacity: 0;
+//}
+//.page.ng-enter.ng-enter-active {
+//    top:0;
+//    opacity: 1;
+//}
+//
+//.page.ng-leave.ng-leave-active{
+//    top:5px;
+//    opacity:1;
+//}
+//.page.ng-leave{
+//    top:0;
+//    left:0;
+//    opacity:0;
+//}
 
 /* ng-repeat animations 
 =============================================*/

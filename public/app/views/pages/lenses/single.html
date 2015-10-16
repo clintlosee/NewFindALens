@@ -4,6 +4,9 @@
 </div>
 
 <form ng-submit="lens.saveLens()" class="form-horizontal">
+   <h4 ng-if="lens.type == 'edit'">ID: {{ lens.lensData._id }}</h4>
+   
+    <!-- Brand -->   
     <div class="form-group">
         <label class="col-sm-2 control-label">Brand</label>
         <div class="col-sm-6">
@@ -11,6 +14,7 @@
         </div>
     </div>
        
+    <!-- Lens Name --> 
     <div class="form-group">
         <label class="col-sm-2 control-label">Lens Name</label>
         <div class="col-sm-6">
@@ -18,6 +22,7 @@
         </div>
     </div>
 
+    <!-- Lens Model --> 
     <div class="form-group">
         <label class="col-sm-2 control-label">Lens Model</label>
         <div class="col-sm-6">
@@ -25,6 +30,7 @@
         </div>
     </div>
 
+    <!-- Price --> 
     <div class="form-group">
         <label class="col-sm-2 control-label">Price</label>
         <div class="col-sm-6">
@@ -32,6 +38,7 @@
         </div>
     </div>
     
+    <!-- Aperture -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Aperture</label>
         <div class="col-sm-6">
@@ -39,6 +46,7 @@
         </div>
     </div>
     
+    <!-- Focal Range -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Focal Range</label>
         <div class="col-sm-6">
@@ -46,6 +54,7 @@
         </div>
     </div>
     
+    <!-- Filter Size -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Filter Size</label>
         <div class="col-sm-6">
@@ -53,6 +62,7 @@
         </div>
     </div>
     
+    <!-- Lens Mount -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Mount</label>
         <div class="col-sm-6">
@@ -60,30 +70,260 @@
         </div>
     </div>
     
+    <!-- Stabilization -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Stabilization</label>
         <div class="col-sm-2">
-<!--            <input type="text" class="form-control" ng-model="lens.lensData.stabilization">-->
-            
             <div class="radio">
                 <label>
-                    <input type="radio" name="truefalse" value="true" ng-model="lens.lensData.stabilization" aria-label="true">
-                    True
+                    <input type="radio" name="stabilization" value="true" ng-checked="lens.lensData.stabilization == true" ng-model="lens.lensData.stabilization" aria-label="true">
+                    Yes
                 </label>
                 <label>
-                    <input type="radio" name="truefalse" value="false" ng-model="lens.lensData.stabilization" aria-label="false">
-                    False
+                    <input type="radio" name="stabilization" value="false" ng-checked="lens.lensData.stabilization == false" ng-model="lens.lensData.stabilization" aria-label="false">
+                    No
                 </label>
-            </div><!-- /input-group -->
+            </div>
         </div>
     </div>
     
+    <!-- AF Motor Type -->
     <div class="form-group">
-        <label class="col-sm-2 control-label">afmotor</label>
+        <label class="col-sm-2 control-label">AF Motor</label>
         <div class="col-sm-6">
             <input type="text" class="form-control" ng-model="lens.lensData.afmotor">
         </div>
     </div>
+    
+    <!-- Zoom Type -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Zoom Type</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.zoomType">
+        </div>
+    </div>
+    
+    <!-- Font Element Rotate -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Front Element Rotates</label>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="frontElementRotates" value="true" ng-checked="lens.lensData.frontElementRotates == true" ng-model="lens.lensData.frontElementRotates" aria-label="true">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="frontElementRotates" value="false" ng-checked="lens.lensData.frontElementRotates == false" ng-model="lens.lensData.frontElementRotates" aria-label="false">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tripod Mount -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Tripod Mount</label>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="tripodMount" value="true" ng-checked="lens.lensData.tripodMount == true" ng-model="lens.lensData.tripodMount" aria-label="true">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="tripodMount" value="false" ng-checked="lens.lensData.tripodMount == false" ng-model="lens.lensData.tripodMount" aria-label="false">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lens Color -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Color</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.color">
+        </div>
+    </div>
+    
+    <!-- Manual Focus -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Manual Focus</label>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="manualFocus" value="true" ng-checked="lens.lensData.manualFocus == true" ng-model="lens.lensData.manualFocus" aria-label="true">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="manualFocus" value="false" ng-checked="lens.lensData.manualFocus == false" ng-model="lens.lensData.manualFocus" aria-label="false">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Number of Lenses -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Number of Lenses</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.numberOfLenses">
+        </div>
+    </div>
+    
+    <!-- Number of Lens Groups -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Number of Groups</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.numberOfGroups">
+        </div>
+    </div>
+    
+    <!-- Diaphragm Blades -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Diaphragm Blades</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.diaphragmBlades">
+        </div>
+    </div>
+   
+    <!-- Length -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Length</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.length">
+        </div>
+    </div>
+    
+    <!-- Weight -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Weight</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.weight">
+        </div>
+    </div>
+    
+    <!-- Announced -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Announced (ex. 1-12-15)</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.announced">
+        </div>
+    </div>
+    
+    <!-- Description -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.description">
+        </div>
+    </div>
+    
+    <!-- Lens Uses -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Lens Uses</label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="useOne" 
+                    ng-model="lens.lensData.useOne" 
+                    ng-true-value="'Landscape'" 
+                    ng-false-value="''"> Landscape
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useTwo"
+                    ng-true-value="'Portrait'" 
+                    ng-false-value="''"> Portrait
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useThree"
+                    ng-true-value="'Sports'" 
+                    ng-false-value="''"> Sports
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useFour"
+                    ng-true-value="'Wildlife'" 
+                    ng-false-value="''"> Wildlife
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useFive"
+                    ng-true-value="'Macro'" 
+                    ng-false-value="''"> Macro
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useSize"
+                    ng-true-value="'Wedding'" 
+                    ng-false-value="''"> Wedding
+        </label>
+        <label class="checkbox-inline col-sm-2 control-label">
+            <input type="checkbox" 
+                    name="favoriteColors" 
+                    ng-model="lens.lensData.useSeven"
+                    ng-true-value="'Travel'" 
+                    ng-false-value="''"> Travel
+        </label>
+    </div>
+    
+    <!-- Rank -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Rank</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.rank">
+        </div>
+    </div>
+    
+    <!-- Best Use -->
+    <div class="form-group">
+        <label for="select" class="col-sm-2 control-label">Best Use</label>
+        <div class="col-sm-6">
+            <select class="form-control" ng-model="lens.lensData.bestUse">
+                <option>Landscape</option>
+                <option>Portrait</option>
+                <option>Sports</option>
+                <option>Wildlife</option>
+                <option>Macro</option>
+                <option>Wedding</option>
+                <option>Travel</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Amazon Link -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Amazon Link</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.amazonLink">
+        </div>
+    </div>
+    
+    <!-- B & H Link -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">B &amp; H Link</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="lens.lensData.bandhLink">
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">

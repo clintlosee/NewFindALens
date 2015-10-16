@@ -4,30 +4,50 @@ var mongoose    = require('mongoose'),
 
 // lens schema
 var LensSchema = new Schema({
-    brand:          { type: String },
+    brand:          { type: String, default: '' },
     lensName:       { type: String, required: true },
     model:          { type: String, required: true, index: { unique: true }},
-    price:          { type: Number },
-    aperture:       { type: String },
-    focalRange:     { type: String },
-    filterSize:     { type: String },
-    mount:          { type: String },
-    stabilization:  { type: Boolean },
-    afmotor:        { type: String },
-    zoomType:       { type: String },
-    frontElementRotate:  { type: String },
-    tripodMount:    { type: Boolean },
-    color:          { type: String },
-    manualFocus:     { type: Boolean }
+    price:          { type: Number, default: 0 },
+    aperture:       { type: String, default: '' },
+    focalRange:     { type: String, default: '' },
+    filterSize:     { type: String, default: '' },
+    mount:          { type: String, default: '' },
+    stabilization:  { type: Boolean, default: false },
+    afmotor:        { type: String, default: '' },
+    zoomType:       { type: String, default: '' },
+    frontElementRotates:  { type: Boolean, default: false },
+    tripodMount:    { type: Boolean, default: false },
+    color:          { type: String, default: '' },
+    manualFocus:    { type: Boolean, default: false },
+//    lensElements:   {
+        numberOfLenses: { type: Number, default: 0 }, 
+        numberOfGroups: { type: Number, default: 0 }, 
+        diaphragmBlades: { type: Number, default: 0 },
+//    },
+//    sizeAndWeight:  {
+        length: { type: String, default: '' },
+        weight: { type: String, default: '' },
+//    },
+    announced:      { type: String, default: '' },
+    description:    { type: String, default: '' },
+//    uses: {
+    useOne:     { type: String, default: '' },
+    useTwo:     { type: String, default: '' },
+    useThree:   { type: String, default: '' },
+    useFour:    { type: String, default: '' },
+    useFive:    { type: String, default: '' },
+    useSix:     { type: String, default: '' },
+    useSeven:   { type: String, default: '' },
+//    },
+    rank:           { type: Number, default: 0 },
+    bestUse:        { type: String, default: '' },
+    amazonLink:     { type: String, default: '' },
+    bandhLink:      { type: String, default: '' }
+//     TODO: Need Image key
 });
 
 // return the model
 module.exports = mongoose.model('Lens', LensSchema);
-
-
-
-
-
 
 
 
@@ -74,6 +94,52 @@ module.exports = mongoose.model('Lens', LensSchema);
 //    "rank": "1",
 //    "bestUse": "Landscape",
 //    "amazonLink": "http://www.amazon.com/gp/product/B00K8942SO/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00K8942SO&linkCode=as2&tag=clinlosephot-20&linkId=WME7FHHCTEKA6FOI"
+//}
+
+
+//{
+//"brand": "Nikon",
+//"model": "Nikkor 18-55mm f/3.5-5.6 ED II AF-S DX",
+//"id": "nikkor-18-55mm-f3_5-5_6-ed-ii-afs-dx",
+//"price": 119.95,
+//"aperture": "f/3.5-5.6",
+//"focalRange": "18-55",
+//"filterSize": "",
+//"mount": "DX",
+//"stabilization": true,
+//"afmotor": "",
+//"zoomType": "",
+//"frontElementRotate": false,
+//"tripodMount": false,
+//"color": "Black",
+//"manualFocus": true,
+//"lensElements": {
+//"numberOfLenses": "",
+//"numberOfGroups": "",
+//"diaphragmBlades": ""
+//},
+//"sizeAndWeight": {
+//"length": "",
+//"weight": ""
+//},
+//"announced": "",
+//"images": [
+//"img/lenses/nikon-18-55.jpg",
+//"img/lenses/nikon-18-55.jpg"
+//],
+//"description": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.",
+//"uses": {
+//"useOne": "Landscape",
+//"useTwo": "Portrait",
+//"useThree": "Sports",
+//"useFour": "Wildlife",
+//"useFive": "Macro",
+//"useSix": "Wedding",
+//"useSeven": "Travel"
+//},
+//"rank": "4",
+//"bestUse": "Landscape",
+//"amazonLink": ""
 //}
 
 

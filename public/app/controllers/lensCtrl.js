@@ -59,7 +59,7 @@ angular.module('lensCtrl', ['lensService'])
 })
 
 // controller applied to lens edit page
-.controller('lensEditController', function($routeParams, Lens) {
+.controller('lensEditController', function($routeParams, $timeout, $location, Lens) {
     var vm = this;
 
     // variable to hide/show elements in the view
@@ -88,6 +88,13 @@ angular.module('lensCtrl', ['lensService'])
             
             // bind the message from the API to vm.message
             vm.message = data.message;
+            
+            if (data.success) {
+                // if a lens successfully updates, redirect to lenses page
+                $timeout(function() {
+                    $location.path('/lenses');
+                }, 2000);
+            } 
         });
     };
 });
