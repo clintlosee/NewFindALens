@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row text-center">
+        <a ui-sref="canon" class="cameraLogo"><img src="assets/img/canon_logo.png" alt="Canon" class="col-md-6 col-md-offset-3 col-xs-12" ng-if="lens.brand == 'canon'" /></a>
+        <a ui-sref="nikon" class="cameraLogo"><img src="assets/img/Nikon-logo.jpg" alt="Nikon" class="col-md-4 col-md-offset-4 col-xs-12" ng-if="lens.brand == 'nikon'" /></a>
+    </div>
+
+    <div class="col-md-12">
+        <h2 ng-if="lens.type == 'landscape'">Landscape Lenses</h2>
+        <h2 ng-if="lens.type == 'portrait'">Portrait Lenses</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <span class="pull-left">Order By:</span>
+            <select ng-model="orderProp" class="form-control input-lg" name="">
+                <option selected value="rank">Rank</option>
+                <option selected value="price">Price</option>
+            </select>
+
+        </div>
+
+    </div> <!-- end row -->
+
+    <div class="row lens-list">
+        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in canonLenses | filter: { bestUse: 'Landscape' } | orderBy:orderProp | limitTo:numLimit">
+            <div class="thumbnail">
+                <a href="#/lens/{{ canonLens.id }}"><img ng-src="{{ canonLens.images[1] }}" class="img-responsive" alt="..."></a>
+                <div class="caption">
+                    <h3>{{ canonLens.model }}</h3>
+                    <p>{{ canonLens.description }}</p>
+                    <p>{{ canonLens.price | currency }}</p>
+                    <p>{{ canonLens.bestUse }}</p>
+                    <span class="badge pull-left">{{ canonLens.rank }}</span>
+                    <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                    <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end row -->
+</div> <!-- end container -->

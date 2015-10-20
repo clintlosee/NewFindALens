@@ -97,5 +97,26 @@ angular.module('lensCtrl', ['lensService'])
             } 
         });
     };
+})
+
+.controller('canonLandscapeLensController', function(Lens) {
+    var vm = this;
+    
+    vm.type = 'landscape';
+    vm.brand = 'canon';
+})
+
+.controller('nikonLandscapeLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'landscape';
+    vm.brand = 'nikon';
+})
+
+.controller('canonPortraitLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'portrait';
+    vm.brand = 'canon';
 });
 

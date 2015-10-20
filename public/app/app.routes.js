@@ -46,6 +46,30 @@ angular.module('app.routes', ['ui.router'])
     .state('nikon', {
         url: '/nikon',
         templateUrl: 'app/views/pages/brands/nikon.html'
+    })
+    
+    // canon landscape lens route
+    .state('canonLandscape', {
+        url: '/canon-landscape',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonLandscapeLensController',
+        controllerAs: 'lens'
+    })
+    
+    // canon portrait lens route
+    .state('canonPortrait', {
+        url: '/canon-portrait',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonPortraitLensController',
+        controllerAs: 'lens'
+    })
+    
+    // nikon landscape lens route
+    .state('nikonLandscape', {
+        url: '/nikon-landscape',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonLandscapeLensController',
+        controllerAs: 'lens'
     });
 
     $locationProvider.html5Mode(true);
