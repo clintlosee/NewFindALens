@@ -1,7 +1,7 @@
 <div class="page-header">
     <h1>
         Lenses
-        <a href="/lenses/create" class="btn btn-default">
+        <a ui-sref="create" class="btn btn-default">
             <span class="glyphicon glyphicon-plus"></span>
             New Lens
         </a>
@@ -75,7 +75,7 @@
                 <td>{{ info.amazonLink }}</td>
                 <td>{{ info.bandhLink }}</td>
                 <td class="col-sm-2">
-                    <a ng-href="/lenses/{{ info._id }}" class="btn btn-success col-sm-12">Edit</a>
+                    <a ui-sref="lensID({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
                     <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger col-sm-12">Delete</a>
                 </td>
             </tr>

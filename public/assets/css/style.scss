@@ -68,6 +68,11 @@ body {
     margin-bottom: 0;
 }
 
+.active {
+    color: $orange !important;
+    font-weight: bold;
+}
+
 
 /******* Main Content *******/
 * {
@@ -81,7 +86,8 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -8em;
+    margin: 0 0 -8em;
+    overflow: hidden;
 }
 .footer, .push {
     height: 4em;
@@ -144,10 +150,10 @@ html, body {
 }
 
 .lens-feature {
-    margin-top:-20px;
+    margin-top: -20px;
 }
 .lens-feature h1 {
-    color: #fff;
+    color: $white;
 }
 
 #lens-content {
@@ -285,7 +291,7 @@ a.ghost-button {
 }
 a.ghost-button:hover, a.ghost-button:active {
     background-color: #cf5b34;
-    color: #fff !important;
+    color: $white !important;
     transition: background-color 0.2s ease-in,
         color 0.2s ease-in;
 }
@@ -306,16 +312,16 @@ a.ghost-button:hover, a.ghost-button:active {
 
 /* Login Modal */
 .ngdialog-message {
-    text-transform:uppercase;
-    padding:10px 0;
+    text-transform: uppercase;
+    padding: 10px 0;
     text-shadow: none;
 }
 .loginInput {
-    padding:10px;
+    padding: 10px;
 }
 .loginInput label {
-    text-align:left;
-    padding:0;
+    text-align: left;
+    padding: 0;
 }
 
 
@@ -403,8 +409,8 @@ a.ghost-button:hover, a.ghost-button:active {
     -o-transition: all linear 0.5s;
     transition: all linear 0.5s;
 
-    position:relative;
-    left:5px;
+    position: relative;
+    left: 5px;
 }
 .repeat-animation.ng-enter {
     opacity: 0;
@@ -419,10 +425,10 @@ a.ghost-button:hover, a.ghost-button:active {
     opacity: 0;
 }
 .repeat-animation.ng-move {
-    left:2px;
+    left: 2px;
     opacity: 0.5;
 }
 .repeat-animation.ng-move.ng-move-active {
-    left:0;
+    left: 0;
     opacity: 1;
 }

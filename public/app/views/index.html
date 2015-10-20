@@ -74,13 +74,13 @@
                     <ul class="nav navbar-nav">
                         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">
-                            <a href="/">Home</a>
+                            <a ui-sref="home">Home</a>
                         </li>
                         <li>
-                            <a href="/canon">Canon</a>
+                            <a ui-sref="canon" ui-sref-active="active">Canon</a>
                         </li>
                         <li>
-                            <a href="/nikon">Nikon</a>
+                            <a ui-sref="nikon" ui-sref-active="active">Nikon</a>
                         </li>
                         <li>
                             <a href="/sony">Sony</a>
@@ -88,7 +88,7 @@
                     </ul>
 <!--                    <button type="button" ng-click="clickToOpen()" class="btn navbar-btn pull-right">Login</button>-->
 <!--                    <button type="button" ng-click="" class="btn navbar-btn btn-default pull-right"><a href="/lenses">Lenses</a></button>-->
-                    <p class="navbar-text navbar-right"><a href="/lenses" class="navbar-link">View Lenses</a></p>
+                    <p class="navbar-text navbar-right"><a ui-sref="lenses" class="navbar-link">View Lenses</a></p>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -99,7 +99,7 @@
         <div id="content">
 
             <!-- Angular App Start | Page Content Shows Here -->
-            <div class="page {{ pageClass }}" ng-view></div>
+            <div class="page {{ pageClass }}" ui-view></div>
 
         </div>  <!--  end content -->
 
@@ -129,7 +129,7 @@
 -->
     <!-- load Angular -->
     <script src="assets/libs/angular/angular.min.js" type="text/javascript"></script>
-    <script src="assets/libs/angular-route/angular-route.min.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
     
     

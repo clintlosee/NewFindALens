@@ -59,7 +59,7 @@ angular.module('lensCtrl', ['lensService'])
 })
 
 // controller applied to lens edit page
-.controller('lensEditController', function($routeParams, $timeout, $location, Lens) {
+.controller('lensEditController', function($stateParams, $timeout, $location, Lens) {
     var vm = this;
 
     // variable to hide/show elements in the view
@@ -68,7 +68,7 @@ angular.module('lensCtrl', ['lensService'])
     
     // Get the lens data for the lens you want to edit
     // $routeParams to grab the data from the URL
-    Lens.get($routeParams.lens_id)
+    Lens.get($stateParams.lensId)
         .success(function(data) {
         vm.lensData = data;
     });
@@ -79,7 +79,7 @@ angular.module('lensCtrl', ['lensService'])
         vm.message = '';
         
         // call the lensService function to Update
-        Lens.update($routeParams.lens_id, vm.lensData)
+        Lens.update($stateParams.lensId, vm.lensData)
         .success(function(data) {
             vm.processing = false;
             
