@@ -43,6 +43,7 @@
                 <th>Best Use</th>
                 <th>Amazon Link</th>
                 <th>B&amp;H Link</th>
+                <th>Images</th>
                 <th class="col-sm-2"></th>
             </tr>
         </thead>
@@ -74,6 +75,7 @@
                 <td>{{ info.bestUse }}</td>
                 <td>{{ info.amazonLink }}</td>
                 <td>{{ info.bandhLink }}</td>
+                <td>{{ info.images }}</td>
                 <td class="col-sm-2">
                     <a ui-sref="lensID({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
                     <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger col-sm-12">Delete</a>

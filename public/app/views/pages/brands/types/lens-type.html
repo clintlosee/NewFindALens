@@ -22,14 +22,22 @@
         </div>
 
     </div> <!-- end row -->
+    
+    <!-- LOADING MESSAGE -->
+    <div class="jumbotron table-bordered table-striped" ng-show="lens.processing">
+        <span class="glyphicon glyphicon-repeat spinner"></span>
+        <p>Loading Lenses...</p>
+    </div>
+    
+<!--    <div ng-repeat="info in lens.lenses">{{info.brand}}</div>-->
 
     <div class="row lens-list">
-        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in canonLenses | filter: { bestUse: 'Landscape' } | orderBy:orderProp | limitTo:numLimit">
+<!--        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { bestUse: 'Landscape' } | orderBy:orderProp | limitTo:numLimit">-->
+        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses">   
             <div class="thumbnail">
-                <a href="#/lens/{{ canonLens.id }}"><img ng-src="{{ canonLens.images[1] }}" class="img-responsive" alt="..."></a>
+                <a href="#/lens/{{ canonLens.id }}"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
                 <div class="caption">
-                    <h3>{{ canonLens.model }}</h3>
-                    <p>{{ canonLens.description }}</p>
+                    <h3>{{ canonLens.lensName }}</h3>
                     <p>{{ canonLens.price | currency }}</p>
                     <p>{{ canonLens.bestUse }}</p>
                     <span class="badge pull-left">{{ canonLens.rank }}</span>

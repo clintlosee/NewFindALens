@@ -53,6 +53,7 @@ module.exports = function(app, express) {
         lens.bestUse        = req.body.bestUse;
         lens.amazonLink     = req.body.amazonLink;
         lens.bandhLink      = req.body.bandhLink;
+        lens.images         = req.body.images;
         
         lens.save(function(err) {
             if (err) {
@@ -130,6 +131,15 @@ module.exports = function(app, express) {
             if (req.body.bestUse) lens.bestUse = req.body.bestUse;
             if (req.body.amazonLink) lens.amazonLink = req.body.amazonLink;
             if (req.body.bandhLink) lens.bandhLink = req.body.bandhLink;
+            if (req.body.images) {
+                lens.update({
+                    $push:  { "images": req.body.images }
+                }, function(err) {
+                    if (err) {
+                        res.send(err);
+                    }
+                });
+            }
 
             // save the lens
             lens.save(function(err) {

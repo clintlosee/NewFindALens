@@ -19,31 +19,30 @@ var LensSchema = new Schema({
     tripodMount:    { type: Boolean, default: false },
     color:          { type: String, default: '' },
     manualFocus:    { type: Boolean, default: false },
-//    lensElements:   {
-        numberOfLenses: { type: Number, default: 0 }, 
-        numberOfGroups: { type: Number, default: 0 }, 
-        diaphragmBlades: { type: Number, default: 0 },
-//    },
-//    sizeAndWeight:  {
-        length: { type: String, default: '' },
-        weight: { type: String, default: '' },
-//    },
+    numberOfLenses: { type: Number, default: 0 }, 
+    numberOfGroups: { type: Number, default: 0 }, 
+    diaphragmBlades:{ type: Number, default: 0 },
+    length:         { type: String, default: '' },
+    weight:         { type: String, default: '' },
     announced:      { type: String, default: '' },
     description:    { type: String, default: '' },
-//    uses: {
-    useOne:     { type: String, default: '' },
-    useTwo:     { type: String, default: '' },
-    useThree:   { type: String, default: '' },
-    useFour:    { type: String, default: '' },
-    useFive:    { type: String, default: '' },
-    useSix:     { type: String, default: '' },
-    useSeven:   { type: String, default: '' },
-//    },
+    useOne:         { type: String, default: '' },
+    useTwo:         { type: String, default: '' },
+    useThree:       { type: String, default: '' },
+    useFour:        { type: String, default: '' },
+    useFive:        { type: String, default: '' },
+    useSix:         { type: String, default: '' },
+    useSeven:       { type: String, default: '' },
     rank:           { type: Number, default: 0 },
     bestUse:        { type: String, default: '' },
     amazonLink:     { type: String, default: '' },
-    bandhLink:      { type: String, default: '' }
-//     TODO: Need Image key
+    bandhLink:      { type: String, default: '' },
+    images:         [ { type: String } ]
+});
+
+LensSchema.pre('save', function(next) {
+    this.images = 'assets/img/lenses/' + this.images;
+    next();
 });
 
 // return the model
@@ -78,7 +77,7 @@ module.exports = mongoose.model('Lens', LensSchema);
 //    },
 //    "announced": "05-13-2014",
 //    "images": [
-//            "img/lenses/canon-16-35-4.jpg",
+//            "assets/img/lenses/canon-16-35-4.jpg",
 //            "img/lenses/canon-16-35-4-b.jpg"
 //        ],
 //    "description": "Canon has been instrumental in offering lightweight f/4 lenses for professional users, and this new ultra-wide angle zoom L-series model is the first from the maker to include stabilization.",

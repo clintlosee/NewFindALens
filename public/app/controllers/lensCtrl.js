@@ -3,8 +3,6 @@ angular.module('lensCtrl', ['lensService'])
 .controller('lensController', function(Lens) {
     var vm = this;
     
-    vm.message = "This is working";
-
     // set a processing variable to show loading things
     vm.processing = true;
 
@@ -104,6 +102,21 @@ angular.module('lensCtrl', ['lensService'])
     
     vm.type = 'landscape';
     vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+    
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
 })
 
 .controller('nikonLandscapeLensController', function(Lens) {
