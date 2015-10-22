@@ -90,7 +90,7 @@ angular.module('lensCtrl', ['lensService'])
             if (data.success) {
                 // if a lens successfully updates, redirect to lenses page
                 $timeout(function() {
-                    $location.path('/lenses');
+                    $location.path('/lenses-admin');
                 }, 2000);
             } 
         });

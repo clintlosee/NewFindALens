@@ -37,13 +37,15 @@ var LensSchema = new Schema({
     bestUse:        { type: String, default: '' },
     amazonLink:     { type: String, default: '' },
     bandhLink:      { type: String, default: '' },
-    images:         [ { type: String } ]
+    images:         [ { type: String, default: [] } ]
 });
 
-LensSchema.pre('save', function(next) {
-    this.images = 'assets/img/lenses/' + this.images;
-    next();
-});
+// NOT WORKING AS EXPECTED YET
+//LensSchema.pre('save', function(next) {
+//    this.images = 'assets/img/lenses/' + this.images;
+//
+//    next();
+//});
 
 // return the model
 module.exports = mongoose.model('Lens', LensSchema);

@@ -12,25 +12,25 @@ angular.module('app.routes', ['ui.router'])
         templateUrl: 'app/views/pages/home.html'
     })
     
-    // view all lenses route
-    .state('lenses', {
-        url: '/lenses',
+    // view lenses admin route
+    .state('lenses-admin', {
+        url: '/lenses-admin',
         templateUrl: 'app/views/pages/lenses/all.html',
         controller: 'lensController',
         controllerAs: 'lens'
     })
     
-    // create a lens route
-    .state('create', {
-        url: '/lenses/create',
+    // admin create a lens route
+    .state('lensCreate', {
+        url: '/lenses-admin/create',
         templateUrl: 'app/views/pages/lenses/single.html',
         controller: 'lensCreateController',
         controllerAs: 'lens'
     })
     
     // edit a lens route
-    .state('lensID', {
-        url: '/lenses/{lensId}',
+    .state('lensEdit', {
+        url: '/lenses-admin/edit/{lensId}',
         templateUrl: 'app/views/pages/lenses/single.html',
         controller: 'lensEditController',
         controllerAs: 'lens'

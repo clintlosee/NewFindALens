@@ -221,49 +221,49 @@
     <!-- Lens Uses -->
     <div class="form-group">
         <label class="col-sm-2 control-label">Lens Uses</label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="useOne" 
                     ng-model="lens.lensData.useOne" 
                     ng-true-value="'Landscape'" 
                     ng-false-value="''"> Landscape
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
                     ng-model="lens.lensData.useTwo"
                     ng-true-value="'Portrait'" 
                     ng-false-value="''"> Portrait
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
                     ng-model="lens.lensData.useThree"
                     ng-true-value="'Sports'" 
                     ng-false-value="''"> Sports
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
                     ng-model="lens.lensData.useFour"
                     ng-true-value="'Wildlife'" 
                     ng-false-value="''"> Wildlife
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
                     ng-model="lens.lensData.useFive"
                     ng-true-value="'Macro'" 
                     ng-false-value="''"> Macro
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
-                    ng-model="lens.lensData.useSize"
+                    ng-model="lens.lensData.useSix"
                     ng-true-value="'Wedding'" 
                     ng-false-value="''"> Wedding
         </label>
-        <label class="checkbox-inline col-sm-2 control-label">
+        <label class="checkbox-inline col-sm-1 control-label">
             <input type="checkbox" 
                     name="favoriteColors" 
                     ng-model="lens.lensData.useSeven"
@@ -285,6 +285,7 @@
         <label for="select" class="col-sm-2 control-label">Best Use</label>
         <div class="col-sm-6">
             <select class="form-control" ng-model="lens.lensData.bestUse">
+                <option value="" disabled selected>Select the lens best use</option>
                 <option>Landscape</option>
                 <option>Portrait</option>
                 <option>Sports</option>
@@ -316,7 +317,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Image Name</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" ng-model="lens.lensData.images">
+            <input type="text" class="form-control" placeholder="assets/img/lenses/[imagename.ext]" ng-model="lens.lensData.images">
         </div>
     </div>
     

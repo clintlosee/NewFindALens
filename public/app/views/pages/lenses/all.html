@@ -1,7 +1,7 @@
 <div class="page-header">
     <h1>
         Lenses
-        <a ui-sref="create" class="btn btn-default">
+        <a ui-sref="lensCreate" class="btn btn-default">
             <span class="glyphicon glyphicon-plus"></span>
             New Lens
         </a>
@@ -70,14 +70,21 @@
                 <td>{{ info.length }} | {{ info.weight }}</td>
                 <td>{{ info.announced }}</td>
                 <td>{{ info.description }}</td>
-                <td>{{ info.useOne }}, {{ info.useTwo }},{{ info.useThree }},{{ info.useFour }},{{ info.useFive }},{{ info.useSix }},{{ info.useSeven }},</td>
+                <td>{{ info.useOne }}<span ng-if="info.useTwo">, </span> 
+                    {{ info.useTwo }}<span ng-if="info.useThree">, </span>
+                    {{ info.useThree }}<span ng-if="info.useFour">, </span>
+                    {{ info.useFour }}<span ng-if="info.useFive">, </span>
+                    {{ info.useFive }}<span ng-if="info.useSix">, </span>
+                    {{ info.useSix }}<span ng-if="info.useSeven">, </span>
+                    {{ info.useSeven }}
+                </td>
                 <td>{{ info.rank }}</td>
                 <td>{{ info.bestUse }}</td>
                 <td>{{ info.amazonLink }}</td>
                 <td>{{ info.bandhLink }}</td>
                 <td>{{ info.images }}</td>
                 <td class="col-sm-2">
-                    <a ui-sref="lensID({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
+                    <a ui-sref="lensEdit({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
                     <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger col-sm-12">Delete</a>
                 </td>
             </tr>
