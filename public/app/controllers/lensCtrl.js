@@ -95,6 +95,12 @@ angular.module('lensCtrl', ['lensService'])
             } 
         });
     };
+    
+    // clear the image path on the form
+    $('#clearImages').on('click', function() {
+        vm.lensData.images = '';
+        $('#imageLinks input').val('');
+    });
 })
 
 .controller('canonLandscapeLensController', function(Lens) {

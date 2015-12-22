@@ -98,11 +98,11 @@ module.exports = function(app, express) {
             if (err) res.send(err);
 
             // update the lens info if it is new
-            if (req.body.brand) lens.brand = req.body.brand;
+            req.body.brand ? lens.brand = req.body.brand : lens.brand = '';
             if (req.body.lensName) lens.lensName = req.body.lensName;
             if (req.body.model) lens.model = req.body.model;
-            if (req.body.price) lens.price = req.body.price;
-            if (req.body.aperture) lens.aperture = req.body.aperture;
+            req.body.price ? lens.price = req.body.price : lens.price = 0;
+            req.body.aperture ? lens.aperture = req.body.aperture : lens.aperture = '';
             if (req.body.focalRange) lens.focalRange = req.body.focalRange;
             if (req.body.filterSize) lens.filterSize = req.body.filterSize;
             if (req.body.mount) lens.mount = req.body.mount;
@@ -133,12 +133,14 @@ module.exports = function(app, express) {
             if (req.body.bandhLink) lens.bandhLink = req.body.bandhLink;
             if (req.body.images) {
                 lens.update({
-                    $push:  { "images": req.body.images }
+                    $addToSet:  { "images": req.body.images }
                 }, function(err) {
                     if (err) {
                         res.send(err);
                     }
                 });
+            } else if (req.body.images === '') {
+                lens.images = [];
             }
 
             // save the lens
