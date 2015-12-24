@@ -3,5 +3,6 @@ angular.module('lensApp', [
     'app.routes',
     'mainCtrl',
     'lensCtrl',
-    'lensService'
+    'lensService',
+    'lensFilter'
 ]);

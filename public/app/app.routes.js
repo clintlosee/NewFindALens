@@ -70,6 +70,13 @@ angular.module('app.routes', ['ui.router'])
         templateUrl: 'app/views/pages/brands/types/lens-type.html',
         controller: 'nikonLandscapeLensController',
         controllerAs: 'lens'
+    })
+    
+    .state('lensView', {
+        url: '/lens/{lensId}',
+        templateUrl: 'app/views/pages/lenses/lens-view.html',
+        controller: 'lensViewController',
+        controllerAs: 'lens'
     });
 
     $locationProvider.html5Mode(true);

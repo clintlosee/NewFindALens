@@ -1,0 +1,86 @@
+<div class="jumbotron lens-feature">
+    <h1>{{ lens.lensData.model }}</h1>
+    <img ng-src="{{ lens.lensData.images[0] }}" alt="Lens Images" />
+</div>
+
+<div class="container">
+
+    <div class="col-md-12" id="lens-content">
+        <h2>Lens Information</h2>
+
+        <p>{{ lens.lensData.description }}</p>
+        <h4 class="text-danger">Lens Price:<strong> {{ lens.lensData.price | currency }}</strong></h4>
+        <h4 class="text-success">{{ lens.lensData.bestUse }} Lens Rank: {{ lens.lensData.rank }}</h4>
+
+        <div class="col-md-4">
+            <h3>Features</h3>
+            <ul class="list-unstyled">
+                <li>Lens Aperture: {{ lens.lensData.aperture }}</li>
+                <li>Lens Focal Range: {{ lens.lensData.focalRange }}</li>
+                <li>Filter Size: {{ lens.lensData.filterSize }}</li>
+                <li>Lens Mount: {{ lens.lensData.mount }}</li>
+                <li>Stabilization: {{ lens.lensData.stabilization | yesNo }}</li>
+                <li>Lens Autofocus Motor Type: {{ lens.lensData.afmotor }}</li>
+                <li>Lens Zoom Type: {{ lens.lensData.zoomType }}</li>
+                <li>Rotating Front Element: {{ lens.lensData.frontElementRotate | yesNo }}</li>
+                <li>Tripod Mount: {{ lens.lensData.tripodMount | yesNo }}</li>
+                <li>Manual Focus: {{ lens.lensData.manualFocus | yesNo }}</li>
+                <li>Lens Elements:
+                    <ul>
+                        <li>Number of Lenses: {{ lens.lensData.lensElements.numberOfLenses }}</li>
+                        <li>Number of Groups: {{ lens.lensData.lensElements.numberOfGroups }}</li>
+                        <li>Number of Diaphragm Blades: {{ lens.lensData.lensElements.diaphragmBlades }}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Size and Weight</h3>
+            <ul class="list-unstyled">
+                <li>Lens Size: {{ lens.lensData.sizeAndWeight.length }}</li>
+                <li>Lens Weight: {{ lens.lensData.sizeAndWeight.weight }}</li>
+            </ul>
+
+            <h3>Date Announced</h3>
+            <ul class="list-unstyled">
+                <li>{{ lens.lensData.announced | date:'medium' }}</li>
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Best Use</h3>
+            <ul class="list-unstyled">
+                <li>{{ lens.lensData.bestUse }}</li>
+            </ul>
+
+            <h3>Common Uses</h3>
+            <ul class="list-unstyled">
+                <li>{{ lens.lensData.uses.useOne }}</li>
+                <li>{{ lens.lensData.uses.useTwo }}</li>
+                <li>{{ lens.lensData.uses.useThree }}</li>
+                <li>{{ lens.lensData.uses.useFour }}</li>
+                <li>{{ lens.lensData.uses.useFive }}</li>
+                <li>{{ lens.lensData.uses.useSix }}</li>
+                <li>{{ lens.lensData.uses.useSeven }}</li>
+            </ul>
+        </div>
+
+        <div class="purchase col-md-12">
+
+            <a href="{{ lens.lensData.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase from Amazon</a>
+            <a href="{{ lens.lensData.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase from B&H</a>
+
+        </div>
+
+        <div class="col-md-12 lens-images">
+
+            <a img-pop class="col-md-3 image-link" href="{{img}}" title="{{lens.lensData.model}}" ng-repeat="img in lens.lensData.images">
+                <img class="col-md-12" ng-src="{{img}}" />
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

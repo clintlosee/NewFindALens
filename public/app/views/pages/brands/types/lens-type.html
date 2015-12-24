@@ -33,16 +33,59 @@
 
     <div class="row lens-list">
 <!--        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { bestUse: 'Landscape' } | orderBy:orderProp | limitTo:numLimit">-->
-        <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses">   
-            <div class="thumbnail">
-                <a href="#/lens/{{ canonLens.id }}"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
-                <div class="caption">
-                    <h3>{{ canonLens.lensName }}</h3>
-                    <p>{{ canonLens.price | currency }}</p>
-                    <p>{{ canonLens.bestUse }}</p>
-                    <span class="badge pull-left">{{ canonLens.rank }}</span>
-                    <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
-                    <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
+
+        <!-- Canon Landscape Lenses -->
+        <div ng-if="lens.type == 'landscape' && lens.brand == 'canon'">
+            <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Landscape'}">
+                <div class="thumbnail">
+                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <div class="caption">
+                        <h3>{{ canonLens.lensName }}</h3>
+                        <p>{{ canonLens.price | currency }}</p>
+                        <p>{{ canonLens.bestUse }}</p>
+                        <span class="badge pull-left">{{ canonLens.rank }}</span>
+                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Canon Portrait Lenses -->
+        <div ng-if="lens.type == 'portrait' && lens.brand == 'canon'">
+            <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Portrait'}">
+                <div class="thumbnail">
+                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <div class="caption">
+                        <h3>{{ canonLens.lensName }}</h3>
+                        <p>{{ canonLens.price | currency }}</p>
+                        <p>{{ canonLens.bestUse }}</p>
+                        <span class="badge pull-left">{{ canonLens.rank }}</span>
+                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <!-- Nikon Landscape Lenses -->
+        <div ng-if="lens.type == 'landscape' && lens.brand == 'nikon'">
+            <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Nikon', bestUse: 'Landscape'}">
+                <div class="thumbnail">
+                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <div class="caption">
+                        <h3>{{ canonLens.lensName }}</h3>
+                        <p>{{ canonLens.price | currency }}</p>
+                        <p>{{ canonLens.bestUse }}</p>
+                        <span class="badge pull-left">{{ canonLens.rank }}</span>
+                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
+                    </div>
                 </div>
             </div>
         </div>

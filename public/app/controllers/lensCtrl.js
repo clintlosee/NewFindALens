@@ -103,6 +103,20 @@ angular.module('lensCtrl', ['lensService'])
     });
 })
 
+// controller applied to lens view page
+.controller('lensViewController', function($stateParams, Lens) {
+    var vm = this;
+
+    vm.type = 'individual';
+    
+    // Get the lens data for the lens you want to edit
+    // $routeParams to grab the data from the URL
+    Lens.get($stateParams.lensId)
+        .success(function(data) {
+        vm.lensData = data;
+    });
+})
+
 .controller('canonLandscapeLensController', function(Lens) {
     var vm = this;
     
@@ -130,6 +144,21 @@ angular.module('lensCtrl', ['lensService'])
 
     vm.type = 'landscape';
     vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
 })
 
 .controller('canonPortraitLensController', function(Lens) {
@@ -137,5 +166,20 @@ angular.module('lensCtrl', ['lensService'])
 
     vm.type = 'portrait';
     vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
 });
 
