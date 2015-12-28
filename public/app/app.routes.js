@@ -64,6 +64,38 @@ angular.module('app.routes', ['ui.router'])
         controllerAs: 'lens'
     })
     
+    // canon sports lens route
+    .state('canonSports', {
+        url: '/canon-sports',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonSportsLensController',
+        controllerAs: 'lens'
+    })
+    
+    // canon wildlife lens route
+    .state('canonWildlife', {
+        url: '/canon-wildlife',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonWildlifeLensController',
+        controllerAs: 'lens'
+    })
+    
+    // canon macro lens route
+    .state('canonMacro', {
+        url: '/canon-macro',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonMacroLensController',
+        controllerAs: 'lens'
+    })
+    
+    // canon travel lens route
+    .state('canonTravel', {
+        url: '/canon-travel',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'canonTravelLensController',
+        controllerAs: 'lens'
+    })
+    
     // nikon landscape lens route
     .state('nikonLandscape', {
         url: '/nikon-landscape',

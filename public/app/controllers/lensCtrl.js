@@ -117,6 +117,7 @@ angular.module('lensCtrl', ['lensService'])
     });
 })
 
+// CANON LENS CONTROLLERS
 .controller('canonLandscapeLensController', function(Lens) {
     var vm = this;
     
@@ -139,11 +140,11 @@ angular.module('lensCtrl', ['lensService'])
     });
 })
 
-.controller('nikonLandscapeLensController', function(Lens) {
+.controller('canonPortraitLensController', function(Lens) {
     var vm = this;
 
-    vm.type = 'landscape';
-    vm.brand = 'nikon';
+    vm.type = 'portrait';
+    vm.brand = 'canon';
     vm.orderProp = 'rank';
     vm.numLimit = 6;
 
@@ -161,11 +162,100 @@ angular.module('lensCtrl', ['lensService'])
     });
 })
 
-.controller('canonPortraitLensController', function(Lens) {
+.controller('canonSportsLensController', function(Lens) {
     var vm = this;
 
-    vm.type = 'portrait';
+    vm.type = 'sports';
     vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('canonWildlifeLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'wildlife';
+    vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('canonMacroLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'macro';
+    vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('canonTravelLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'travel';
+    vm.brand = 'canon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+// NIKON LENS CONTROLLERS
+.controller('nikonLandscapeLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'landscape';
+    vm.brand = 'nikon';
     vm.orderProp = 'rank';
     vm.numLimit = 6;
 
