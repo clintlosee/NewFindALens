@@ -104,6 +104,46 @@ angular.module('app.routes', ['ui.router'])
         controllerAs: 'lens'
     })
     
+    // nikon portrait lens route
+    .state('nikonPortrait', {
+        url: '/nikon-portrait',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonPortraitLensController',
+        controllerAs: 'lens'
+    })
+
+    // nikon sports lens route
+    .state('nikonSports', {
+        url: '/nikon-sports',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonSportsLensController',
+        controllerAs: 'lens'
+    })
+
+    // nikon wildlife lens route
+    .state('nikonWildlife', {
+        url: '/nikon-wildlife',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonWildlifeLensController',
+        controllerAs: 'lens'
+    })
+
+    // nikon macro lens route
+    .state('nikonMacro', {
+        url: '/nikon-macro',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonMacroLensController',
+        controllerAs: 'lens'
+    })
+
+    // nikon travel lens route
+    .state('nikonTravel', {
+        url: '/nikon-travel',
+        templateUrl: 'app/views/pages/brands/types/lens-type.html',
+        controller: 'nikonTravelLensController',
+        controllerAs: 'lens'
+    })
+    
     .state('lensView', {
         url: '/lens/{lensId}',
         templateUrl: 'app/views/pages/lenses/lens-view.html',

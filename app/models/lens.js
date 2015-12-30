@@ -37,7 +37,8 @@ var LensSchema = new Schema({
     bestUse:        { type: String, default: '' },
     amazonLink:     { type: String, default: '' },
     bandhLink:      { type: String, default: '' },
-    images:         [ { type: String, default: [] } ]
+//    images:         [ { type: String, default: [] } ]
+    images:         [ { type: String } ]
 });
 
 // NOT WORKING AS EXPECTED YET

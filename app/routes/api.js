@@ -91,9 +91,9 @@ module.exports = function(app, express) {
         });
     })
 
-        // update the lens with that id
-        // access at PUT http://localhost:8000/api/lens/:lens_id
-        .put(function(req, res) {
+    // update the lens with that id
+    // access at PUT http://localhost:8000/api/lens/:lens_id
+    .put(function(req, res) {
         Lens.findById(req.params.lens_id, function(err, lens) {
             if (err) res.send(err);
 
@@ -152,9 +152,9 @@ module.exports = function(app, express) {
         });
     })
 
-        // delete the lens with that id
-        // access at DELETE http://localhost:8000/api/lens/:lens_id
-        .delete(function(req, res) {
+    // delete the lens with that id
+    // access at DELETE http://localhost:8000/api/lens/:lens_id
+    .delete(function(req, res) {
         Lens.remove({
             _id: req.params.lens_id
         }, function(err, lens) {

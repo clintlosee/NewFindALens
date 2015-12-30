@@ -271,5 +271,115 @@ angular.module('lensCtrl', ['lensService'])
         // bind the lenses that come back to vm.lenses
         vm.lenses = data;
     });
+})
+
+.controller('nikonPortraitLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'portrait';
+    vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('nikonSportsLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'sports';
+    vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('nikonWildlifeLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'wildlife';
+    vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('nikonMacroLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'macro';
+    vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
+})
+
+.controller('nikonTravelLensController', function(Lens) {
+    var vm = this;
+
+    vm.type = 'travel';
+    vm.brand = 'nikon';
+    vm.orderProp = 'rank';
+    vm.numLimit = 6;
+
+    // set a processing variable to show loading things
+    vm.processing = true;
+
+    // grab all the lenses at page load
+    Lens.all()
+        .success(function(data) {
+        // when all the lenses come back, remove the processing variable
+        vm.processing = false;
+
+        // bind the lenses that come back to vm.lenses
+        vm.lenses = data;
+    });
 });
 
