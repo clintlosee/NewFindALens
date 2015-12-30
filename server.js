@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
 app.use(morgan('dev'));
 
 // connect to the database
-//mongoose.connect(config.dbLocal); // connect to local db
-mongoose.connect(config.dbRemote); // connect to mongolab db
+mongoose.connect(config.dbLocal); // connect to local db
+//mongoose.connect(config.dbRemote); // connect to mongolab db
 
 // set the static files location
 // used for requests that the frontend will make
