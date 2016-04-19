@@ -61,7 +61,7 @@ module.exports = function(app, express) {
                 if (err.code == 11000)
                     return res.json({ success: false, message: 'A lens with that model already exists.' });
                 else 
-                    return res.send(err)
+                    return res.send(err);
             }
             
             res.json({ message: 'Lens Created!' });
