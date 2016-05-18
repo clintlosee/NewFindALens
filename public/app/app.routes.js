@@ -1,15 +1,21 @@
 angular.module('app.routes', ['ui.router'])
 
-    .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $locationProvider, $urlRouterProvider, filepickerProvider) {
     
     $urlRouterProvider.otherwise('/');
     
     $stateProvider
     
-    // home page route
-    .state('home', {
+    // main start page route
+    .state('main', {
         url: '/',
-        templateUrl: 'app/views/pages/home.html'
+        templateUrl: 'app/views/pages/main.html'
+    })
+    
+    // brand choice page route
+    .state('brands', {
+        url: '/brands',
+        templateUrl: 'app/views/pages/brands.html'
     })
     
     // view lenses admin route
@@ -153,4 +159,7 @@ angular.module('app.routes', ['ui.router'])
     });
 
     $locationProvider.html5Mode(true);
+    
+    // Add the API key to use filestack service
+    filepickerProvider.setKey('AD7vVuxkNQgKQTQK6WNmnz');
 });

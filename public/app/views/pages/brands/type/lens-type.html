@@ -46,13 +46,15 @@
         <div ng-if="lens.type == 'landscape' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Landscape'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
-                        <h3>{{ canonLens.lensName }}</h3>
+                        <h3>{{ canonLens.lensName }} - {{canonLens._id}}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>
@@ -62,13 +64,15 @@
         <div ng-if="lens.type == 'portrait' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Portrait'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
                         <h3>{{ canonLens.lensName }}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>
@@ -78,13 +82,15 @@
         <div ng-if="lens.type == 'sports' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Sports'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
                         <h3>{{ canonLens.lensName }}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>
@@ -94,13 +100,15 @@
         <div ng-if="lens.type == 'wildlife' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Wildlife'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
                         <h3>{{ canonLens.lensName }}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>
@@ -110,13 +118,15 @@
         <div ng-if="lens.type == 'macro' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Macro'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
                         <h3>{{ canonLens.lensName }}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>
@@ -126,13 +136,15 @@
         <div ng-if="lens.type == 'travel' && lens.brand == 'canon'">
             <div class="col-sm-6 col-md-4 ind-lens repeat-animation" ng-repeat="canonLens in lens.lenses | filter: { brand: 'Canon', bestUse: 'Travel'}">
                 <div class="thumbnail">
-                    <a ui-sref="lensView({ lensId: canonLens._id })"><img ng-src="{{ canonLens.images[0] }}" class="img-responsive" alt="..."></a>
+                    <a ui-sref="lensView({ lensId: canonLens._id })">
+                        <img ng-src="{{canonLens.picture.url}}" class="img-responsive" alt="...">
+                    </a>
                     <div class="caption">
                         <h3>{{ canonLens.lensName }}</h3>
                         <p>{{ canonLens.price | currency }}</p>
                         <p>{{ canonLens.bestUse }}</p>
                         <span class="badge pull-left">{{ canonLens.rank }}</span>
-                        <a href="#/lens/{{ canonLens.id }}" class="btn btn-info" role="button">Information</a>
+                        <a ui-sref="lensView({ lensId: canonLens._id })" class="btn btn-info" role="button">Information</a>
                         <a href="{{ canonLens.amazonLink }}" class="btn btn-success" role="button" target="_blank">Purchase</a>
                     </div>
                 </div>

@@ -314,6 +314,7 @@
     </div>
     
     <!-- Images -->
+<!--
     <div class="form-group">
         <label class="col-sm-2 control-label">Image Name</label>
         <div class="col-sm-6" id="imageLinks">
@@ -322,6 +323,50 @@
         </div>
         <a class="btn btn-small btn-danger col-sm-1" id="clearImages">Clear</a>
     </div>
+-->
+    
+    
+    
+    
+    <!-- test image uploader to filestack -->
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="picture">Main picture</label>
+        <div class="col-sm-6" id="imageLinks">
+            <button type="button" class="btn btn-default" ng-click="lens.upload()">
+                Upload <span class="caret"></span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.picture" ng-click="lens.remove(lens.lensData.picture)">
+                Delete <span class="close"></span>
+            </button>
+            <div style="margin-top:10px;">
+                <!-- Show the thumbnail only when the picture is uploaded -->
+                <a href="{{lens.lensData.picture.url}}" class="thumbnail" ng-show="lens.lensData.picture">
+                    <!-- the picture is rendered with width: 500 and sharpened -->
+                    <img ng-src="{{lens.lensData.picture.url | fpConvert: {filter: 'sharpen', w:150} }}">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="picture">More pictures? (Max 3, optional!)</label>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-default" ng-click="lens.uploadMultiple()">
+                Upload <span class="caret"></span>
+            </button>
+            <!-- Show the thumbanil of more pictures -->
+            <div style="margin-top:10px;" ng-repeat="picture in lens.lensData.morePictures">     
+                <div class="col-md-{{12 / lens.lensData.morePictures.length}}">
+                    <a href="{{picture.url}}" class="thumbnail">
+                        <img ng-src="{{picture.url | fpConvert: {filter:'sharpen'} }}">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
     
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">

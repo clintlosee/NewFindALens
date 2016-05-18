@@ -18,42 +18,7 @@ module.exports = function(app, express) {
     
     // create a lens (access at POST http://localhost:8000/api/lens)
     .post(function(req, res) {
-        var lens = new Lens();
-        
-        lens.brand          = req.body.brand;
-        lens.lensName       = req.body.lensName;
-        lens.model          = req.body.model;
-        lens.price          = req.body.price;
-        lens.aperture       = req.body.aperture;
-        lens.focalRange     = req.body.focalRange;
-        lens.filterSize     = req.body.filterSize;
-        lens.mount          = req.body.mount;
-        lens.stabilization  = req.body.stabilization;
-        lens.afmotor        = req.body.afmotor;
-        lens.zoomType       = req.body.zoomType;
-        lens.frontElementRotates = req.body.frontElementRotates;
-        lens.tripodMount    = req.body.tripodMount;
-        lens.color          = req.body.color;
-        lens.manualFocus    = req.body.manualFocus;
-        lens.numberOfLenses    = req.body.numberOfLenses;
-        lens.numberOfGroups    = req.body.numberOfGroups;
-        lens.diaphragmBlades   = req.body.diaphragmBlades;
-        lens.length         = req.body.length;
-        lens.weight         = req.body.weight;
-        lens.announced      = req.body.announced;
-        lens.description    = req.body.announced;
-        lens.useOne         = req.body.useOne;
-        lens.useTwo         = req.body.useTwo;
-        lens.useThree       = req.body.useThree;
-        lens.useFour        = req.body.useFour;
-        lens.useFive        = req.body.useFive;
-        lens.useSix         = req.body.useSix;
-        lens.useSeven       = req.body.useSeven;
-        lens.rank           = req.body.rank;
-        lens.bestUse        = req.body.bestUse;
-        lens.amazonLink     = req.body.amazonLink;
-        lens.bandhLink      = req.body.bandhLink;
-        lens.images         = req.body.images;
+        var lens = new Lens(req.body);
         
         lens.save(function(err) {
             if (err) {
@@ -64,7 +29,7 @@ module.exports = function(app, express) {
                     return res.send(err);
             }
             
-            res.json({ message: 'Lens Created!' });
+            res.json({ success: true, message: 'Lens Created!' });
         });
     })
     
@@ -131,6 +96,8 @@ module.exports = function(app, express) {
             if (req.body.bestUse) lens.bestUse = req.body.bestUse;
             if (req.body.amazonLink) lens.amazonLink = req.body.amazonLink;
             if (req.body.bandhLink) lens.bandhLink = req.body.bandhLink;
+            if (req.body.picture) lens.picture = req.body.picture;
+            if (req.body.morePictures) lens.morePictures = req.body.morePictures;
             if (req.body.images) {
                 lens.update({
                     $addToSet:  { "images": req.body.images }

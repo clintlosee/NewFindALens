@@ -82,7 +82,12 @@
                 <td>{{ info.bestUse }}</td>
                 <td>{{ info.amazonLink }}</td>
                 <td>{{ info.bandhLink }}</td>
-                <td>{{ info.images }}</td>
+<!--                <td>{{ info.images }}</td>-->
+                <td>
+                    <img ng-src="{{info.picture.url | fpConvert: {w:100} }}">
+<!--                    {{ info.picture.filename }}-->
+                   <span ng-if="info.morePictures">More Images: Yes</span>
+                </td>
                 <td class="col-sm-2">
                     <a ui-sref="lensEdit({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
                     <a href="#" ng-click="lens.deleteLens(info._id)" class="btn btn-danger col-sm-12">Delete</a>
