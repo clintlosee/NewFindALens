@@ -96,8 +96,10 @@ module.exports = function(app, express) {
             if (req.body.bestUse) lens.bestUse = req.body.bestUse;
             if (req.body.amazonLink) lens.amazonLink = req.body.amazonLink;
             if (req.body.bandhLink) lens.bandhLink = req.body.bandhLink;
-            if (req.body.picture) lens.picture = req.body.picture;
-            if (req.body.morePictures) lens.morePictures = req.body.morePictures;
+            if (req.body.mainPicture) lens.mainPicture = req.body.mainPicture;
+            if (req.body.pictureTwo) lens.pictureTwo = req.body.pictureTwo;
+            if (req.body.pictureThree) lens.pictureThree = req.body.pictureThree;
+            if (req.body.pictureFour) lens.pictureFour = req.body.pictureFour;
             if (req.body.images) {
                 lens.update({
                     $addToSet:  { "images": req.body.images }

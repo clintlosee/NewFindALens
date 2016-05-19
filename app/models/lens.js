@@ -39,8 +39,10 @@ var LensSchema = new Schema({
     bandhLink:      { type: String, default: '' },
 //    images:         [ { type: String, default: [] } ]
     images:         [ { type: String } ],
-    picture:        {type: Schema.Types.Mixed},
-    morePictures:   {type: Schema.Types.Mixed}, // not required
+    mainPicture:    {type: Schema.Types.Mixed},
+    pictureTwo:     {type: Schema.Types.Mixed},
+    pictureThree:     {type: Schema.Types.Mixed},
+    pictureFour:     {type: Schema.Types.Mixed},
 });
 
 // NOT WORKING AS EXPECTED YET

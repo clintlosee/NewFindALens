@@ -146,7 +146,7 @@ angular.module('lensCtrl', ['lensService'])
     //----- Filestack image upload
     
     // Single file upload
-    vm.upload = function() {
+    vm.upload = function(image) {
         filepickerService.pick(
             {
                 mimetype: 'image/*',
@@ -156,48 +156,81 @@ angular.module('lensCtrl', ['lensService'])
             },
             function(Blob) {
                 console.log(JSON.stringify(Blob));
-                vm.lensData.picture = Blob;
+                vm.lensData[image] = Blob;
                 $scope.$apply();
             }
         );
     };
-
-    // Multiple files upload set to 3 as max
-    vm.uploadMultiple = function() {
-        filepickerService.pickMultiple(
-            {
-                mimetype: 'image/*',
-                language: 'en',
-                maxFiles: 3,
-                services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH'],
-                openTo: 'IMAGE_SEARCH'
-            },
-            function(Blob) {
-                console.log(JSON.stringify(Blob));
-                vm.lensData.morePictures = Blob;
-                $scope.$apply();
-            }
-        );
-    };
-    
-    
-    /// Testing Image Removal
     
     // Single file remove
-    vm.remove = function(Blob) {
+    vm.remove = function(Blob, image) {
         filepickerService.remove(
             Blob,
             function() {
-                vm.lensData.picture = {};
+                vm.lensData[image] = {};
                 $scope.$apply();
                 alert('Image Removed! Click update lens or upload new image to replace.');
-                
+
                 console.log('Removed');
             }, function(err) {
                 console.log('Error removing image.', err);            
             }
         );
     };
+    
+    
+    
+
+    // Multiple files upload set to 3 as max
+//    vm.uploadMultiple = function() {
+//        filepickerService.pickMultiple(
+//            {
+//                mimetype: 'image/*',
+//                language: 'en',
+//                maxFiles: 3,
+//                services: ['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'IMAGE_SEARCH'],
+//                openTo: 'COMPUTER'
+//            },
+//            function(Blob) {
+//                console.log(JSON.stringify(Blob));
+//                vm.lensData.morePictures = Blob;
+//                $scope.$apply();
+//            }
+//        );
+//    };
+    
+    
+    /// Testing Image Removal
+    
+    // Multiple file remove
+//    vm.removeMultiple = function(Blob) {
+//        var itemindex = vm.lensData.morePictures.map(function(obj, index) {
+//            if (obj.id == Blob.id) {
+//                console.log("obj id:", obj.id);
+//                console.log("Blob id:", Blob.id);
+//                console.log(index);
+//                
+//                return index;
+//            }    
+//        }).filter(isFinite);
+//        
+//        
+//        console.log(itemindex[0]);
+//        console.log(vm.lensData.morePictures[itemindex[0]]);
+//        
+//        filepickerService.remove(
+//            Blob,
+//            function() {
+//                vm.lensData.morePictures[itemindex[0]] = {};
+//                $scope.$apply();
+//                alert('Image Removed! Click update lens or upload new image to replace.');
+//
+//                console.log('Removed');
+//            }, function(err) {
+//                console.log('Error removing image.', err);            
+//            }
+//        );
+//    };
     
 //    vm.remove = function(Blob) {
 //        console.log("Storing...");

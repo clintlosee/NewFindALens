@@ -1,6 +1,6 @@
 <div class="jumbotron lens-feature">
     <h1>{{ lens.lensData.model }}</h1>
-    <img ng-src="{{lens.lensData.picture.url}}" alt="{{lens.lensData.lensName}} - Lens Images" />
+    <img ng-src="{{lens.lensData.mainPicture.url}}" alt="{{lens.lensData.lensName}} - Lens Images" />
 </div>
 
 <div class="container">
@@ -56,13 +56,13 @@
 
             <h3>Common Uses</h3>
             <ul class="list-unstyled">
-                <li>{{ lens.lensData.uses.useOne }}</li>
-                <li>{{ lens.lensData.uses.useTwo }}</li>
-                <li>{{ lens.lensData.uses.useThree }}</li>
-                <li>{{ lens.lensData.uses.useFour }}</li>
-                <li>{{ lens.lensData.uses.useFive }}</li>
-                <li>{{ lens.lensData.uses.useSix }}</li>
-                <li>{{ lens.lensData.uses.useSeven }}</li>
+                <li ng-show="lens.lensData.useOne">{{ lens.lensData.useOne }}</li>
+                <li ng-show="lens.lensData.useTwo ">{{ lens.lensData.useTwo }}</li>
+                <li ng-show="lens.lensData.useThree">{{ lens.lensData.useThree }}</li>
+                <li ng-show="lens.lensData.useFour">{{ lens.lensData.useFour }}</li>
+                <li ng-show="lens.lensData.useFive">{{ lens.lensData.useFive }}</li>
+                <li ng-show="lens.lensData.useSix ">{{ lens.lensData.useSix }}</li>
+                <li ng-show="lens.lensData.useSeven">{{ lens.lensData.useSeven }}</li>
             </ul>
         </div>
 
@@ -75,7 +75,7 @@
 
         <div class="col-md-12 lens-images">
 
-            <a img-pop class="col-md-3 image-link" href="{{img}}" title="{{lens.lensData.model}}" ng-repeat="img in lens.lensData.images">
+            <a img-pop class="col-md-3 image-link" href="{{img}}" title="{{lens.lensData.model}}" >
                 <img class="col-md-12" ng-src="{{img}}" />
             </a>
 

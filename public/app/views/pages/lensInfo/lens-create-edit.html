@@ -328,41 +328,117 @@
     
     
     
-    <!-- test image uploader to filestack -->
+    <!-- Image uploader to filestack -->
     <div class="form-group">
         <label class="col-sm-2 control-label" for="picture">Main picture</label>
         <div class="col-sm-6" id="imageLinks">
-            <button type="button" class="btn btn-default" ng-click="lens.upload()">
+            <button type="button" class="btn btn-default" ng-click="lens.upload('mainPicture')">
                 Upload <span class="caret"></span>
             </button>
-            <button type="button" class="btn btn-danger" ng-if="lens.lensData.picture" ng-click="lens.remove(lens.lensData.picture)">
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.mainPicture" ng-click="lens.remove(lens.lensData.mainPicture, 'mainPicture')">
                 Delete <span class="close"></span>
             </button>
             <div style="margin-top:10px;">
                 <!-- Show the thumbnail only when the picture is uploaded -->
-                <a href="{{lens.lensData.picture.url}}" class="thumbnail" ng-show="lens.lensData.picture">
+                <a href="{{lens.lensData.mainPicture.url}}" class="thumbnail" ng-show="lens.lensData.mainPicture">
                     <!-- the picture is rendered with width: 500 and sharpened -->
-                    <img ng-src="{{lens.lensData.picture.url | fpConvert: {filter: 'sharpen', w:150} }}">
+                    <img ng-src="{{lens.lensData.mainPicture.url | fpConvert: {filter: 'sharpen', w:150} }}">
                 </a>
             </div>
         </div>
     </div>
+    
+    <!-- Image Two uploader to filestack -->
+    <div class="form-group" ng-show="lens.lensData.mainPicture">
+        <label class="col-sm-2 control-label" for="picture">Picture Two</label>
+        <div class="col-sm-6" id="imageLinks">
+            <button type="button" class="btn btn-default" ng-click="lens.upload('pictureTwo')">
+                Upload <span class="caret"></span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.pictureTwo" ng-click="lens.remove(lens.lensData.pictureTwo, 'pictureTwo')">
+                Delete <span class="close"></span>
+            </button>
+            <div style="margin-top:10px;">
+                <!-- Show the thumbnail only when the picture is uploaded -->
+                <a href="{{lens.lensData.pictureTwo.url}}" class="thumbnail" ng-show="lens.lensData.pictureTwo">
+                    <!-- the picture is rendered with width: 500 and sharpened -->
+                    <img ng-src="{{lens.lensData.pictureTwo.url | fpConvert: {filter: 'sharpen', w:150} }}">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Three uploader to filestack -->
+    <div class="form-group" ng-show="lens.lensData.pictureTwo">
+        <label class="col-sm-2 control-label" for="picture">Picture Three</label>
+        <div class="col-sm-6" id="imageLinks">
+            <button type="button" class="btn btn-default" ng-click="lens.upload('pictureThree')">
+                Upload <span class="caret"></span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.pictureThree" ng-click="lens.remove(lens.lensData.pictureThree, 'pictureThree')">
+                Delete <span class="close"></span>
+            </button>
+            <div style="margin-top:10px;">
+                <!-- Show the thumbnail only when the picture is uploaded -->
+                <a href="{{lens.lensData.pictureThree.url}}" class="thumbnail" ng-show="lens.lensData.pictureThree">
+                    <!-- the picture is rendered with width: 500 and sharpened -->
+                    <img ng-src="{{lens.lensData.pictureThree.url | fpConvert: {filter: 'sharpen', w:150} }}">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Four uploader to filestack -->
+    <div class="form-group" ng-show="lens.lensData.pictureThree">
+        <label class="col-sm-2 control-label" for="picture">Picture Four</label>
+        <div class="col-sm-6" id="imageLinks">
+            <button type="button" class="btn btn-default" ng-click="lens.upload('pictureFour')">
+                Upload <span class="caret"></span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.pictureFour" ng-click="lens.remove(lens.lensData.pictureFour, 'pictureFour')">
+                Delete <span class="close"></span>
+            </button>
+            <div style="margin-top:10px;">
+                <!-- Show the thumbnail only when the picture is uploaded -->
+                <a href="{{lens.lensData.pictureFour.url}}" class="thumbnail" ng-show="lens.lensData.pictureFour">
+                    <!-- the picture is rendered with width: 500 and sharpened -->
+                    <img ng-src="{{lens.lensData.pictureFour.url | fpConvert: {filter: 'sharpen', w:150} }}">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<!--
     <div class="form-group">
         <label class="col-sm-2 control-label" for="picture">More pictures? (Max 3, optional!)</label>
         <div class="col-sm-6">
             <button type="button" class="btn btn-default" ng-click="lens.uploadMultiple()">
                 Upload <span class="caret"></span>
             </button>
-            <!-- Show the thumbanil of more pictures -->
-            <div style="margin-top:10px;" ng-repeat="picture in lens.lensData.morePictures">     
+            <button type="button" class="btn btn-danger" ng-if="lens.lensData.morePictures" ng-click="lens.removeMultiple(lens.lensData.morePictures)">
+                Delete <span class="close"></span>
+            </button>
+            
+             Show the thumbanil of more pictures 
+            <div style="margin-top:10px;" ng-repeat="picture in lens.lensData.morePictures">
                 <div class="col-md-{{12 / lens.lensData.morePictures.length}}">
                     <a href="{{picture.url}}" class="thumbnail">
                         <img ng-src="{{picture.url | fpConvert: {filter:'sharpen'} }}">
                     </a>
+                    <button type="button" class="btn btn-danger" ng-if="lens.lensData.morePictures" ng-click="lens.removeMultiple(picture)">
+                        Delete <span class="close"></span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+-->
     
     
     

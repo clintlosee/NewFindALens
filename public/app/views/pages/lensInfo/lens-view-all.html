@@ -84,9 +84,8 @@
                 <td>{{ info.bandhLink }}</td>
 <!--                <td>{{ info.images }}</td>-->
                 <td>
-                    <img ng-src="{{info.picture.url | fpConvert: {w:100} }}">
-<!--                    {{ info.picture.filename }}-->
-                   <span ng-if="info.morePictures">More Images: Yes</span>
+                    <img ng-src="{{info.mainPicture.url | fpConvert: {w:100} }}">
+                    <span ng-if="info.pictureTwo">More Images: &#9989;</span>
                 </td>
                 <td class="col-sm-2">
                     <a ui-sref="lensEdit({ lensId: info._id })" class="btn btn-success col-sm-12">Edit</a>
